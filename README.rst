@@ -92,13 +92,13 @@ It is quite advanced for new Linux user but it is manageble.
 Another options is to start Docker Daemon manually, 
 Which can be achieved by one of following commands:
 
-* `sudo systemctl start docker`
-* `sudo service docker start` 
-* `sudo dockerd`
+* $ ``sudo systemctl start docker``
+* $ ``sudo service docker start``
+* $ ``sudo dockerd``
 
 After making sure that Docker daemon is up and running, you are ready to build/start containers.
 
-To build the container, run:: (You may need to have root privelege for using Docker depending on Docker Daemon. If it is the case, add `sudo` to commands.)
+To build the container, run:: (You may need to have root privelege for using Docker depending on Docker Daemon. If it is the case, add ``sudo`` to commands.)
 
   $ docker build -t itucsdb .
 
