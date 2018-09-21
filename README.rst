@@ -98,7 +98,7 @@ Which can be achieved by one of following commands:
 
 After making sure that Docker daemon is up and running, you are ready to build/start containers.
 
-To build the container, run::
+To build the container, run:: (You may need to have root privelege for using Docker depending on Docker Daemon. If it is the case, add `sudo` to commands.)
 
   $ docker build -t itucsdb .
 
