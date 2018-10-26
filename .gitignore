@@ -1,7 +1,9 @@
 *.pyc
-
+bin/*
+include/*
+lib/*
+.vscode/*
 __pycache__
-
 .project
 .pydevproject
 .idea
@@ -9,3 +11,5 @@ __pycache__
 
 venv/
 docs/build/
+.gitignore
+pip*
