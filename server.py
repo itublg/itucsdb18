@@ -1,13 +1,11 @@
 from flask import Flask
-
+import dbinit
+import datetime
 
 app = Flask(__name__)
 
-
-@app.route("/")
-def home_page():
-    return "Hello, world!"
-
+from routes.home import *
+from routes.books import *
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
