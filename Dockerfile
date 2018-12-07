@@ -1,5 +1,19 @@
-FROM ubuntu
+FROM ubuntu:18.04
 
+# Update repository databases
+RUN apt-get update
+
+# Install necessary packages to install
+RUN apt-get install -y apt-utils software-properties-common
+RUN apt-get install -y wget ca-certificates
+
+# Add PostgreSQL repository key to machine
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+
+# Add PostgreSQL repository to machine
+RUN apt-add-repository 'deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main'
+
+# Update repository databases
 RUN apt-get update
 
 #  There are some warnings (in red) that show up during the build. You can hide
