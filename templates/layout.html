@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="eng-US">
+
+  <head>
+    <!-- Site hakkındaki genel bilgiler,bootstrap ve font-awesome kodlarının internetten import edilmesi-->
+    <title>Librarian {% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="An example site of a university library" name="description">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/cedd86c4ea.js" crossorigin="anonymous"></script>
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <header>
+    	<nav class="navbar navbar-expand-sm navbar-light navbar-fixed-top" style="margin-bottom: 40px;">
+    		<div class="container">
+    			<div id="navbar" class="navbar-collapse collapse">
+    				<ul class="nav navbar-nav">
+    					 <li><a href="{{ url_for('home_page') }}" class="btn" style="color:rgb(178,0,0);"><i class="fa fa-book-reader" style=""></i>LIBRARIAN</a></li>
+    					 <li><a href="{{ url_for('books_page') }}" class="btn" style="color:rgb(178,0,0);"><i class="fa fa-book" style=""></i>BOOKS</a></li>
+    					 <li><a href="{{ url_for('authors_page') }}" class="btn" style="color:rgb(178,0,0);"><i class="fa fa-user-friends" style=""></i>AUTHORS</a></li>
+               <li><a href="{{ url_for('closets_page') }}" class="btn" style="color:rgb(178,0,0);"><i class="fa fa-door-closed" style=""></i>CLOSETS</a></li>			
+    				</ul>
+    			</div>
+    			<ul class="nav navbar-nav navbar-right">
+    				<li><a href="{{ url_for('admin_login_page') }}" class="btn" style="color:rgb(178,0,0);"><i class="fa fa-key" style=""></i>ADMIN LOGIN</a></li>
+    			</ul>		
+    		</div>	
+    	</nav>
+    </header> 
+
+    {% block content %}{% endblock %}
+
+    <footer style="text-align: center;"> 
+        <small>2019, Oğuz Gögebakan & Salih Furkan Ceyhan</small>
+    </footer>
+
+  </body>
+</html>
+
+ 

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div class= "container-fluid">
+    <div class= "row">
+      <div class = "col-sm d-flex flex-wrap align-content-center justify-content-center"><img src="{{ url_for('static', filename='itu_logo.png') }}" alt="İTÜ Logo" width="212" height="120"></div>
+      <div class = "col-sm"><a href="#" class="btn btn-primary"><p style="font-size:200%; color:rgb(178,0,0);">WELCOME TO LIBRARIAN. YOU CAN FREELY LOOK FOR THE RETURN DATES AND PLACES OF THE BOOKS YOU WANT TO BORROW. ALSO YOU CAN BORROW A CLOSET TO STORE YOUR BELONGINGS.</p></a></div>
+      <div class = "col-sm d-flex flex-wrap align-content-center justify-content-center"><img src="{{ url_for('static', filename='itu_logo.png') }}" alt="İTÜ Logo" width="212" height="120"></div>
+    </div>
+</div>
+
+{% endblock %}

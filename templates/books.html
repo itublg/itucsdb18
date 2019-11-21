@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    <div style="margin-left: 15px;">
+
+      <h1 class="title">Create book</h1>
+
+      <form action="" method="post" name="book_create">
+
+        <div class="field">
+          <label for="name" class="label">Book Name</label>
+            <div class="control">
+              <input type="text" name="book_name" class="input" required="required"/>
+            </div>
+        </div>
+
+        <div class="field">
+          <label for="pb_year" class="label">Publication Year</label>
+            <div class="control">
+              <input type="text" name="pub_year" class="input" required="required"/>
+            </div>
+        </div>
+
+        <div class="field">
+          <label for="lang" class="label">Language</label>
+            <div class="control">
+              <input type="text" name="book_lang" class="input"/>
+            </div>
+        </div>
+
+        <div class="field">
+          <label for="genre" class="label">Genre</label>
+            <div class="control">
+              <input type="text" name="book_genre" class="input"/>
+            </div>
+        </div>
+
+      <div class="field">
+          <label for="pb_loc" class="label">Publication Location</label>
+            <div class="control">
+              <input type="text" name="pub_location" class="input"/>
+            </div>
+        </div>
+
+      <div class="field">
+          <label for="publisher" class="label">Publisher</label>
+            <div class="control">
+              <input type="text" name="publisher" class="input"/>
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary is-small">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+{% endblock %}
