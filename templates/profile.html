@@ -1,0 +1,376 @@
+{% extends "layout.html" %}
+
+ {% set profileActive = 1 %} 
+
+{% block title %} Profile {% endblock title %}
+
+ {% block style %} .profile-image { width: 40%; } .profile-image2 { width: 50%; } .space { margin:0; padding:0; height:30px; }
+{% endblock style %} 
+
+{% block page_content %}
+
+<div class="space"></div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    </li>
+    {% if username == viewer %}
+    <li class="nav-item">
+        <a class="nav-link" id="friends-tab" data-toggle="tab" href="#friends" role="tab" aria-controls="friends" aria-selected="false">Friends</a>
+    </li>
+    {% endif %}
+    {% if username == viewer %}
+    <li class="nav-item">
+        <a class="nav-link" id="friendrequest-tab" data-toggle="tab" href="#friendrequest" role="tab" aria-controls="friendrequest" aria-selected="false">
+    Friend Requests</a>
+    </li>
+    {% endif %} 
+    {% if username == viewer %}
+    <li class="nav-item">
+        <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">
+    Messages </a>
+    </li>
+    {% endif %} 
+    {% if username == viewer %}
+    <li class="nav-item">
+        <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+    </li>
+    {% endif %}
+</ul>
+
+<div class="space"></div>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="row mx-md-n5">
+
+            <div class="well well-sm">
+
+                <div class="col border px-md-5">
+                    <div class="text-center">
+                        {% if profileImage == 0 %}
+                        <img src="https://sketchmob.com/wp-content/uploads/2017/09/11189_173340de-347x347.jpg" class="rounded profile-image" alt="profileImage"> 
+                        {% elif profileImage == 1%}
+                        <img src="https://i.postimg.cc/FRCBcMsT/asada.jpg" class="rounded profile-image" alt="profileImage"> 
+                        {% else %}
+                        <img src="https://i.postimg.cc/kGtfSDH5/original.jpg" class="rounded profile-image" alt="profileImage"> 
+                        {% endif %}
+                    </div>
+                    <br>
+                    <ul class="list-group">
+                        <li class="list-group-item"><span class="font-weight-bold">Username:</span> {{username}}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Email:</span> {{email}}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Last login:</span> Now</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Clan:</span> None</li>
+                    </ul>
+                    <br>
+                </div>
+
+            </div>
+
+            <div class="col px-md-5">
+                <img src="https://pm1.narvii.com/6320/7291d500bd9041fd6bcb33c5616736798cfd199d_00.jpg">
+            </div>
+        </div>
+
+    </div>
+{% if username == viewer %}
+    <div class="tab-pane" id="friends" role="tabpanel" aria-labelledby="friends-tab">
+        <div class="row">
+
+            <div class="col border">
+                <div class="text-center">
+                    <img src="https://studybreaks.com/wp-content/uploads/2018/05/sora-yori-mo-tooi-basho-0322.jpg" class="rounded profile-image2" alt="...">
+                </div>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <div class="text-center">
+                                    Friends
+                                </div>
+                            </th>
+                            <th> Options </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for idx in friends %}
+                        <tr>
+                            <td>{{idx[0]}}</td>
+                            <td>
+                                    <button type="submit" rel="tooltip" class="btn btn-info btn-round btn-just-icon btn-sm btn-block" data-original-title="" title="" data-toggle="modal" data-target="#SendMessageModal{{idx[0]}}">
+                                        Send Message
+                                    </button>
+                            </td>
+                            <td>
+                                <form action="/friendDelete" method="post">
+                                    <input type="hidden" name="username" value={{idx[0]}} />
+                                    <button type="submit" rel="tooltip" class="btn btn-info btn-round btn-just-icon btn-sm btn-block" data-original-title="" title="">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col">
+                <img src="https://pm1.narvii.com/6320/7291d500bd9041fd6bcb33c5616736798cfd199d_00.jpg">
+            </div>
+        </div>
+        {% for idx in friends %}
+        <div class="modal fade" id="SendMessageModal{{idx[0]}}" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{idx[0]}}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                       <form method ="POST", action="/new_message">
+                        <input type="hidden" name="receiver" value={{idx[0]}} />
+                        <textarea class="form-control" id="message" rows="7" name="message"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+{% endif %}
+
+    {% if username == viewer %}
+    <div class="tab-pane" id="friendrequest" role="tabpanel" aria-labelledby="friendrequest-tab">
+        <div class="row">
+            <div class="col border">
+                <div class="text-center">
+                    <img src="https://studybreaks.com/wp-content/uploads/2018/05/sora-yori-mo-tooi-basho-0322.jpg" class="rounded profile-image2" alt="...">
+                </div>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                Friend Requests
+                            </th>
+                            <th scope="col">Options</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for idx in friendRequests %}
+                        <tr>
+                            <td>{{idx[0]}}</td>
+                            <td>
+                                <form action="/friendAccept" method="post">
+                                    <input type="hidden" name="username" value={{idx[0]}} />
+                                    <button type="submit" rel="tooltip" class="btn btn-info btn-round btn-just-icon btn-sm btn-block" data-original-title="" title="">
+                                        Accept
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/friendReject" method="post">
+                                    <input type="hidden" name="username" value={{idx[0]}} />
+                                    <button type="submit" rel="tooltip" class="btn btn-info btn-round btn-just-icon btn-sm btn-block" data-original-title="" title="">
+                                        Reject
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col">
+                <img src="https://pm1.narvii.com/6320/7291d500bd9041fd6bcb33c5616736798cfd199d_00.jpg">
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% if username == viewer %}
+    <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+        <div class="row">
+
+            <div class="col border">
+                <div class="text-center">
+                    <img src="https://studybreaks.com/wp-content/uploads/2018/05/sora-yori-mo-tooi-basho-0322.jpg" class="rounded profile-image2" alt="...">
+                </div>
+                <br>
+
+                {% for idx in message_list %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{idx[0]}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Some time ago</h6>
+                        <p class="card-text">{{idx[1]}}</p>
+                        <a href="SendMessageModal2{{idx[0]}}" class="card-link" data-toggle="modal" data-target="#SendMessageModal2{{idx[0]}}">Reply</a>
+                        <a href="#!" class="card-link">Delete Message</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+
+            <div class="col">
+                <img src="https://pm1.narvii.com/6320/7291d500bd9041fd6bcb33c5616736798cfd199d_00.jpg">
+            </div>
+        </div>
+
+
+        {% for idx in message_list %}
+        <div class="modal fade" id="SendMessageModal2{{idx[0]}}" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{idx[0]}}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                       <form method ="POST", action="/new_message">
+                        <input type="hidden" name="receiver" value={{idx[0]}} />
+                        <textarea class="form-control" id="message" rows="7" name="message"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+{% endif %}
+
+{% if username == viewer %}
+    <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+
+        <div class="row">
+            <div class="col border">
+
+                <div class="space"></div>
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group dropright">
+                            <button type="button" class="btn btn-secondary">
+                                Profile Settings
+                            </button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropright</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#changeProfileImage" data-toggle="modal" data-target="#changeProfileImage0">Change Profile Image</a>
+                                <a class="dropdown-item" href="">Privacy Settings</a>
+                                <a class="dropdown-item disabled" href="">Delete Account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="space"></div>
+                        <div class="btn-group dropright">
+                            <button type="button" class="btn btn-secondary">
+                                Game Settings
+                            </button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropright</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="">Open Attack Mode</a>
+                                <a class="dropdown-item" href="">Buy Premium</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+                <img src="https://pm1.narvii.com/6320/7291d500bd9041fd6bcb33c5616736798cfd199d_00.jpg">
+            </div>
+
+        </div>
+
+        {% for i in range(0, profile_images_len) %}
+        <div class="modal fade" id="changeProfileImage{{i}}" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Profile Images</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                {% if i == 0 %}
+                                <li class="page-item disabled">
+                                    {% else %}
+                                    <li class="page-item">
+                                        {% endif %}
+                                        <a class="page-link" href="#changeProfileImage{{i-1}}" data-dismiss="modal" data-toggle="modal" data-target="#changeProfileImage{{i-1}}" tabindex=-1>Previous</a>
+                                    </li>
+                                    {% for j in range(0, profile_images_len) %} {% if i == j %}
+                                    <li class="page-item active">
+                                        {% else %}
+                                        <li class="page-item">
+                                            {% endif %}
+                                            <a class="page-link" href="#changeProfileImage{{j}}" data-dismiss="modal" data-toggle="modal" data-target="#changeProfileImage{{j}}">{{j+1}}</a>
+                                        </li>
+                                        {% endfor %} {% if i == profile_images_len-1 %}
+                                        <li class="page-item disabled">
+                                            {% else %}
+                                            <li class="page-item">
+                                                {% endif %}
+                                                <a class="page-link" href="#changeProfileImage{{i+1}}" data-dismiss="modal" data-toggle="modal" data-target="#changeProfileImage{{i+1}}">Next</a>
+
+                                            </li>
+
+                            </ul>
+                        </nav>
+
+                        <div class="text-center">
+                            <img src="{{image_links[i]}}" class="rounded profile-image" alt="profileImage">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <form method="GET" action="/changeProfileImage/{{i}}">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+{% endif %}
+
+</div>
+
+{% endblock page_content %}

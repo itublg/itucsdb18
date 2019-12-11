@@ -1,3 +1,9 @@
+**Table Plans**
+https://docs.google.com/spreadsheets/d/19E53-ke0pQOWnSKnj2uIF_eqpvPz9tPbXfobxlHdk9s/edit?usp=sharing
+
+**repo**
+
+
 This repository contains a template project for the Database Systems course
 of the Istanbul Technical University Computer Engineering Department.
 The project uses the Python language, the Flask web application framework,

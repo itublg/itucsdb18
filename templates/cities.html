@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% set citiesActive = 1 %}
+
+{% block title %} Cities Page {% endblock title %}
+
+{% block page_content %}
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">City Major</th>
+      <th scope="col">City Name</th>
+      <th scope="col">City Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for city_major, city_name, city_location in cities %}
+    <tr>
+      <th scope="row">city_major</th>
+      <td>city_name</td>
+      <td>city_location</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

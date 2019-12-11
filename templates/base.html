@@ -1,0 +1,50 @@
+{% extends "layout.html" %} {% set homeActive = 1 %} {% block style %} .king { transform: scale(1.2); } 
+
+
+{% endblock style %} 
+
+{% block title %} Home Page {% endblock title %}
+
+ {% block page_content %}
+
+<br>
+<br>
+<br>
+
+<div class="row">
+
+    <div class="col border m-1">
+
+        <h4> News </h4> Game Development Progress
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                30%
+            </div>
+        </div>
+
+        <br>
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://honeysanime.com/wp-content/uploads/2016/05/Chi%E2%80%99s-Sweet-Home-Wallpaper.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Messages</h5>
+                <p class="card-text">Now you can send messages to your friends from profile page. Try it now!</p>
+                <a href="/profile" class="btn btn-primary">Go Profile</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col border m-1">
+        <h4> Best Users </h4>
+    </div>
+
+    <div class="col border m-1">
+        <h4> Nothing Here Now </h4>
+    </div>
+
+</div>
+
+{% endblock %}
+  

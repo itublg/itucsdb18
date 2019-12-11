@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %} Logged {% endblock title %}
+<!-- Page Content -->
+{% block page_content %}
+
+<div class="container">
+  <div class = "text-center">
+  <h1 class="mt-4">Welcome!</h1>
+  <h1 class="mt-4">You are {{username}} and your password is {{password}}</h1>
+  <form name = "login" action= "{{url_for('friends.add')}}" method="post">
+    <div class="form-label-group">
+      <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Friend username" value="" required autofocus>
+      <label for="inputEmail">Username {{error}}</label>
+    </div>
+    <input class="btn btn-default" type="submit" value="Add friend">
+  </form>
+  request list
+  <ul>
+  {% for friend in friendRequests%}
+  <li>
+    {{friend[0]}}
+    <a href={{url_for('friends.accept',username=friend[0])}}>accept</a>
+  </li>
+  {% endfor %}
+  </ul>
+
+  Frineds list
+  <ul>
+  {% for friend in friends%}
+  <li>
+    {{friend[0]}}
+  </li>
+  {% endfor %}
+  </ul>
+  </div>
+</div>
+{% endblock %}
+<!-- /.container -->
