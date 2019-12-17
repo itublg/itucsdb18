@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Product{% endblock %}
+{% block content %}
+<div style=" margin: auto;
+  width: 50%;
+  border: 3px solid CadetBlue;
+  padding: 10px;">
+    <h3 style="font-family: Alcubierre;" ><i>UPDATE DESSERT</i> </h3>
+
+<form  id="Login" action="{{ url_for('product.updateDessertPriceByNameEnd') }}" method="POST">
+
+<table align="center" cellpadding = "10">
+
+<!----- PRODUCT NAME ---------------------------------------------------------->
+    <tr>
+        <td>Dessert Name</td>
+        <td><input type="text" name="dessertname" maxlength="30" />
+        (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+<!----- PRICE---------------------------------------------------------->
+    <tr>
+        <td>Dessert Price</td>
+        <td><input type="number" name="price"  step=any />
+        (Decimal Number)
+        </td>
+    </tr>
+     <tr>
+
+         <td> <button type="submit" class="btn" onclick="product.updateDessertPriceByNameEnd">Update Dessert</button>
+         </td>
+     </tr>
+
+</table>
+
+</form>
+</div>
+
+{% endblock %}

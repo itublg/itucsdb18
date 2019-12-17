@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Shopping Cart{% endblock %}
+{% block content %}
+
+<div style=" margin: auto;
+  width: 50%;
+  border: 3px solid CadetBlue;
+  padding: 10px;">
+
+<div><h3 style="font-family:verdana;"> YOUR CARD </h3></div>
+<div><h3></h3></div>
+
+<div style="width:60%;">
+<table class="table table-dark">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Order</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for order in orders %}
+  <tr>
+    <td>{{order[1]}} </td>
+    <td> {{order[3]}} </td>
+  </tr>
+  {% endfor %}
+
+
+  </tbody>
+  <tbody>
+  {% for dessert in desserts %}
+  <tr>
+    <td>{{dessert[1]}} </td>
+    <td> {{dessert[3]}} </td>
+  </tr>
+  {% endfor %}
+
+
+  </tbody>
+  <tbody>
+  {% for drink in drinks %}
+  <tr>
+    <td>{{drink[1]}} </td>
+    <td> {{drink[3]}} </td>
+  </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+</div>
+
+<div>
+   <button id="createbutton" class="btn"><a href="{{url_for('order.createOrderEnd')}}">Create Order</a>  </button>
+   <button id="deletebutton" class="btn"><a href ="{{url_for('order.deleteOrderEnd')}}">Delete Order</a>  </button>
+
+</div>
+
+</div>
+{% endblock %}

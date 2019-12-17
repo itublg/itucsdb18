@@ -1,31 +1,54 @@
 Developer Guide
 ===============
+This web application is developed with Python's Flask library.
+In this web application, PostgreSQL is used for relational database.
 
 Database Design
 ---------------
 
-**explain the database design of your project**
+We have 8 tables in our databases model. We reliazed our model according to e-commerce for food industry. There are included non-keys, primary keys and foreign keys in our R-DBMS.
 
-**include the E/R diagram(s)**
+E/R Diagram of Database
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-Code
-----
+All tables are given in Figure 1.
 
-**explain the technical structure of your code**
+.. figure:: ERDiagram.png
+   :scale: 20 %
+   :alt: map to buried treasure
 
-**to include a code listing, use the following example**::
+   This is the caption of the figure (a simple paragraph).
 
-   .. code-block:: python
 
-      class Foo:
+     Figure 2 images tables E/R diagram
+     
+.. figure:: diagrams/erdi.png
+   :scale: 20 %
+   :alt: map to buried treasure
 
-         def __init__(self, x):
-            self.x = x
+   This is the caption of the figure (a simple paragraph).     
+
+Table Distribution
+^^^^^^^^^^^^^^^^^^^
+
+:Bunyamin YASAR:
+
+   * ADDRESS
+   * PRODUCT   
+   * DESSERT
+   * DRINK
+
+:Cihat BOSTANCI:
+
+   * FIRM
+   * CUSTOMER
+   * USER
+   * ORDER
 
 .. toctree::
 
    member1
    member2
-   member3
-   member4
-   member5
+
+
+  

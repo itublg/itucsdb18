@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Product{% endblock %}
+{% block content %}
+<div style=" margin: auto;
+  width: 50%;
+  border: 3px solid CadetBlue;
+  padding: 10px;">
+    <h1 style="font-family: Alcubierre;"><i>Your Products</i></h1>
+
+<div style="width:30%;">
+<table class="table table-dark">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+     {% for product in products %}
+  <tr>
+    <td>{{product[1]}} </td>
+    <td> {{product[3]}} </td>
+  </tr>
+
+  {% endfor %}
+
+  </tbody>
+
+    <tbody>
+     {% for dessert in desserts %}
+  <tr>
+    <td>{{dessert[1]}} </td>
+    <td> {{dessert[3]}} </td>
+  </tr>
+
+  {% endfor %}
+
+  </tbody>
+
+
+    <tbody>
+     {% for drink in drinks %}
+  <tr>
+    <td>{{drink[1]}} </td>
+    <td> {{drink[3]}} </td>
+  </tr>
+
+  {% endfor %}
+
+  </tbody>
+</table>
+</div>
+
+<div>
+   <button id="createbutton" class="btn"><a href="{{url_for('product.createProductEnd')}}">Create Product</a>  </button>
+   <button id="deletebutton" class="btn"><a href="{{url_for('product.deleteProductByNameEnd')}}">Delete Product</a> </button>
+    <button id="updatebutton" class="btn"><a href="{{url_for('product.updatePriceByNameEnd')}}">Update Product</a> </button>
+</div>
+    <div style="height:10%;width:100%"><p style="
+
+padding: 1px 2px 3px 6px;"></p></div>
+
+    <div>
+   <button id="createbuttondessert" class="btn"><a href="{{url_for('product.createDessertEnd')}}">Create Dessert</a>  </button>
+   <button id="deletebuttondessert" class="btn"><a href="{{url_for('product.deleteDessertByNameEnd')}}">Delete Dessert</a> </button>
+    <button id="updatebuttondessert" class="btn"><a href="{{url_for('product.updateDessertPriceByNameEnd')}}">Update Dessert</a> </button>
+</div>
+    <div style="height:10%;width:100%"><p style="
+
+padding: 1px 2px 3px 6px;"></p>
+</div>
+    <div>
+   <button id="createbuttondrink" class="btn"><a href="{{url_for('product.createDrinkEnd')}}">Create Drink</a>  </button>
+   <button id="deletebuttondrink" class="btn"><a href="{{url_for('product.deleteDrinkByNameEnd')}}">Delete Drink</a> </button>
+    <button id="updatebuttondrink" class="btn"><a href="{{url_for('product.updateDrinkPriceByNameEnd')}}">Update Drink</a> </button>
+</div>
+
+</div>
+
+{% endblock %}

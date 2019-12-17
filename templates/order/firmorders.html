@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Shopping Cart{% endblock %}
+{% block content %}
+<div style=" margin: auto;
+  width: 50%;
+  border: 3px solid CadetBlue;
+  padding: 10px;">
+    <h1><i>You are not authorized. Please return home.</i></h1>
+
+         <div>
+            <a href="{{ url_for('user.feed') }}"><button> Return Home </button></a>
+         </div>
+
+</div>
+
+{% endblock %}

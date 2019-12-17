@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+
+<div style=" margin: auto;
+  width: 50%;
+  border: 3px solid CadetBlue;
+  padding: 10px;">
+
+<div><h3 style="font-family:verdana;"> CUSTOMER PROFILE </h3></div>
+<div><h3></h3></div>
+<div>
+    <h5 style="font-family:verdana;"><b>Customer Name:</b> <i>{{customername}}</i></h5>
+</div>
+
+
+<div style="width:60%;">
+<table class="table table-dark">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Street</th>
+      <th scope="col">Building No</th>
+        <th scope="col">Apartment No</th>
+        <th scope="col">Locality</th>
+        <th scope="col">City</th>
+
+    </tr>
+  </thead>
+     <tbody>
+     {% for a in address %}
+  <tr>
+    <td>{{a[1]}} </td>
+      <td>{{a[2]}} </td>
+    <td>{{a[3]}} </td>
+    <td>{{a[4]}} </td>
+    <td>{{a[5]}} </td>
+
+  </tr>
+
+  {% endfor %}
+
+  </tbody>
+
+</table>
+</div>
+
+<div style="width:60%;">
+<table class="table table-dark">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Order</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for order in orders %}
+  <tr>
+    <td>{{order[1]}} </td>
+    <td> {{order[3]}} </td>
+  </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+</div>
+
+</div>
+{% endblock %}

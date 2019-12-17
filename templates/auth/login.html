@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="log-form"  style="
+        display: inline-block;
+        font-size: large;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 300px;
+        margin: auto;
+        background-color:  #d5d8dc;
+        argin: auto;
+        width: 50%;
+        border: 3px solid CadetBlue;
+        padding: 10px;">
+  <div> <h2> <font color="#000000"><i>LOGIN ACCOUNT</i></font></h2> </div>
+  <form  id="Login" action="{{ url_for('auth.login') }}" method="POST">
+    <input type="text" id="email" title="email" placeholder="email" name="email" />
+    <input type="password"  id="password" title="password" placeholder="password" name="password" />
+    <button type="submit" class="btn" onclick="auth.login">Login</button>
+
+  </form>
+</div><!--end log form -->
+
+
+{% endblock %}

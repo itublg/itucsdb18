@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Eater - {% block title %}{% endblock %}</title>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:   #d5d8dc   ;">
+                 <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="{{ url_for('home') }}">EATER</a>
+                            </div>
+                            <ul class="nav navbar-nav">
+                                    <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
+                                    <li><a href="{{ url_for('about') }}">About</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="{{ url_for('auth.signUp') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                    <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                    <li><a href="{{ url_for('auth.firmSignUp') }}"><span class="glyphicon glypicon-user"></span>Firm Sign Up</a></li>
+                            </ul>
+                        </div>
+                 </nav>
+    {% block content %}{% endblock %}
+
+<div style="height: 40px;
+    position: fixed;
+    bottom:0%;
+    width:100%;
+    background-color:  #d5d8dc ;
+    background-position: center;
+    opacity: 1;">
+
+    <small><font color="#000000">&copy;Cihat Bostanci and Bunyamin Yasar</font></small>
+  </div>
+</body>

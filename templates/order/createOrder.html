@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Product{% endblock %}
+{% block content %}
+
+      <div style=" margin: auto;
+  width: 50%;
+  border: 3px solid CadetBlue;
+  padding: 10px;">
+
+          <div><h3 style="font-family:verdana;"> <i>CREATE ORDERS </i></h3></div>
+<div><h3></h3></div>
+
+<div>
+<form  id="Login" action="{{ url_for('order.createOrderEnd') }}" method="POST">
+
+<table align="center" cellpadding = "10">
+
+
+<!----- PRODUCT NAME ---------------------------------------------------------->
+    <tr>
+        <td>Product Name</td>
+        <td><input type="text" name="productname" maxlength="30" />
+        (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+    <!----- PRICE---------------------------------------------------------->
+    <tr>
+        <td>Product Price</td>
+        <td><input type="number" name="price"  />
+        (Decimal Number)
+        </td>
+    </tr>
+     <tr>
+
+         <!----- Dessert NAME ---------------------------------------------------------->
+    <tr>
+        <td>Dessert Name</td>
+        <td><input type="text" name="dessertname" maxlength="30" />
+        (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+    <!----- PRICE---------------------------------------------------------->
+    <tr>
+        <td>Dessert Price</td>
+        <td><input type="number" name="pricedessert"  />
+        (Decimal Number)
+        </td>
+    </tr>
+
+         <!----- Drink NAME ---------------------------------------------------------->
+    <tr>
+        <td>Drink Name</td>
+        <td><input type="text" name="drinkname" maxlength="30" />
+        (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+    <!----- PRICE---------------------------------------------------------->
+    <tr>
+        <td>Drink Price</td>
+        <td><input type="number" name="pricedrink"  />
+        (Decimal Number)
+        </td>
+    </tr>
+
+     <tr>
+
+         <td> <button type="submit" class="btn" onclick="order.createOrderEnd">Add Product</button>
+         </td>
+     </tr>
+
+</table>
+
+</form>
+
+   </div>
+
+      </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Product{% endblock %}
+{% block content %}
+
+
+<div style=" margin: auto;
+  width: 50%;
+  border: 3px solid CadetBlue;
+  padding: 10px;">
+
+      <div>
+     <h1 style="font-family: Alcubierre;"><i>Products</i></h1>
+      </div>
+
+<div style="width:30%;">
+<table class="table table-dark">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+     {% for product in products %}
+  <tr>
+    <td>{{product[1]}} </td>
+    <td> {{product[3]}} </td>
+  </tr>
+
+  {% endfor %}
+
+  </tbody>
+    <tbody>
+     {% for dessert in desserts %}
+  <tr>
+    <td>{{dessert[1]}} </td>
+    <td> {{dessert[3]}} </td>
+  </tr>
+
+  {% endfor %}
+
+  </tbody>
+    <tbody>
+     {% for drink in drinks %}
+  <tr>
+    <td>{{drink[1]}} </td>
+    <td> {{drink[3]}} </td>
+  </tr>
+
+  {% endfor %}
+
+  </tbody>
+</table>
+</div>
+</div>
+
+{% endblock %}

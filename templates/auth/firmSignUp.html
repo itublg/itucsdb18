@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+
+
+<div style=" margin: auto;
+  width: 50%;
+  border: 3px solid CadetBlue;
+  padding: 10px;">
+
+    <div><h3 style="font-family:verdana;"> <i>FIRM SIGN UP</i></h3></div>
+<div><h3></h3></div>
+
+<form id="Login" action="{{ url_for('auth.firmSignUp') }}" method="POST">
+
+<table align="center" cellpadding = "10">
+
+<!----- Email ---------------------------------------------------------->
+    <tr>
+        <td>EMAIL</td>
+        <td><input type="text" name="email" maxlength="30" />
+        (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+<!----- Password ---------------------------------------------------------->
+    <tr>
+        <td>PASSWORD</td>
+        <td><input type="password" name="password" minlength="4" maxlength="10" />
+        (min 4 max 10 characters 0-9 and A-Z)
+        </td>
+    </tr>
+
+<!----- Firm Name ---------------------------------------------------------->
+    <tr>
+        <td>FIRM NAME</td>
+        <td><input type="text" name="First_Name" maxlength="30"/>
+            (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+
+
+
+<!----- Mobile Number ---------------------------------------------------------->
+    <tr>
+        <td>MOBILE NUMBER</td>
+        <td>
+        <input type="text" name="Mobile_Number" maxlength="12" />
+        (10 digit number)
+        </td>
+    </tr>
+
+<!----- Locality ---------------------------------------------------------->
+    <tr>
+        <td>LOCALITY</td>
+        <td><input type="text" name="Locality" maxlength="30" />
+        (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+<!----- Street ---------------------------------------------------------->
+    <tr>
+        <td>STREET</td>
+        <td><input type="text" name="Street" maxlength="30" />
+        (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+<!----- Building ---------------------------------------------------------->
+    <tr>
+        <td>BUILDING</td>
+        <td><input type="number" name="Building" min="1" max="999" />
+        (max 3 digit number)
+        </td>
+    </tr>
+
+<!----- Apartment ---------------------------------------------------------->
+    <tr>
+        <td>APARTMENT</td>
+        <td><input type="number" name="Apartment" min="1" max="999" />
+        (max 3 digit number)
+        </td>
+    </tr>
+
+
+
+<!----- City ---------------------------------------------------------->
+    <tr>
+        <td>CITY</td>
+        <td><input type="text" name="City" maxlength="30" placeholder="district/city"/>
+        (max 30 characters a-z and A-Z)
+        </td>
+    </tr>
+
+<!----- Post Code ---------------------------------------------------------->
+    <tr>
+        <td>POST CODE</td>
+        <td><input type="number" name="Pin_Code" min="10000" max="99999" />
+        (6 digit number)
+        </td>
+    </tr>
+   <!----- Tax Number---------------------------------------------------------->
+
+    <tr>
+        <td>TAX NUMBER</td>
+        <td><input type="text" name="Tax_Number" maxlength="16" />
+        (16 digit numbers)
+        </td>
+    </tr>
+
+
+
+<!----- Country ---------------------------------------------------------->
+    <tr>
+        <td>COUNTRY</td>
+        <td><input type="text" name="Country" value="Turkey" readonly="readonly" /></td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        </td>
+    </tr>
+</table>
+
+</form>
+
+</div>
+
+{% endblock %}
